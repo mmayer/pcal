@@ -1,0 +1,49 @@
+# National holidays in Estonia as of Jan 2004.
+#
+# Created by Neeme Praks
+# A bit of copy-and-paste from the Finnish settings
+#
+# add an asterisk (*) to the date to specify a non-work holiday
+
+# OVERRIDE THE PROGRAM DEFAULTS
+opt -E        # European date format
+opt -F Monday    # starting day should be Monday
+opt -z 2    # time zone should be GMT+2
+opt -a et    # print out Estonian days and months
+
+# print the week and day number on each Sunday
+#all Sunday in all*         <I>P\344ev %j, n\344dal %w</I>
+
+1 Jan*                uusaasta
+6 Jan                kolmekuningap\344ev
+2 Feb                Tartu rahulepingu aastap\344ev
+16 Feb                Leedu iseseisvusp\344ev
+24 Feb*                iseseisvusp\344ev
+24 Feb                Eesti Vabariigi aastap\344ev
+14 Mar                emakeelep\344ev
+last Sunday in Mar        suveaeg (+1t)
+
+# Easter is a predefined holiday, calculated by Pcal for each year
+7th Tue before Easter        vastlap\344ev
+Good_Friday*            suur reede
+Easter*                \374lest\365usmisp\374hade 1. p\374ha
+Mon after Easter        \374lest\365usmisp\374hade 2. p\374ha
+7th Sun after Easter*        nelip\374hade 1. p\374ha
+
+last day in Apr            volbri\366\366
+1 May*                kevadp\374ha
+1 May                volber
+2nd Sun in May            emadep\344ev
+14 Jun                leinap\344ev
+23 Jun*                v\365idup\374ha
+24 Jun*                jaanip\344ev
+20 Aug*                taasiseseisvumisp\344ev
+last Sunday in Oct        talveaeg (-1t)
+2 Nov                hingedep\344ev
+2nd Sun in Nov            isadep\344ev
+16 Nov                taass\374nni p\344ev
+18 Nov                L\344ti iseseisvusp\344ev
+6 Dec                Soome iseseisvusp\344ev
+25 Dec*                1. j\365ulupp\374ha
+26 Dec*                2. j\365ulupp\374ha
+

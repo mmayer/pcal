@@ -1,0 +1,45 @@
+#
+# British Dates (not complete)
+#
+
+opt -E
+
+1 Jan*				New Year's Day		# reset year implicitly
+2 Jan*				Bank Holiday
+3 Jan				Scottish Bank Holiday 
+6 Jan				Epiphany
+14 Feb 				Valentine's Day
+
+17 Mar				St. Patrick's Day
+17 Mar				Irish Bank Holiday
+
+# Easter is a predefined holiday, calculated by Pcal for each year
+Good_Friday*			Good Friday
+Easter				EASTER Sunday
+Mon after Easter*		Easter Monday
+
+last Sunday in March		Mother's Day
+last Sunday in March		DST begins (+1h)
+
+ifdef QUEEN
+21 April			Queen's Birthday
+10 June				Queen's Official Birthday
+endif
+
+first Monday in May*		Bank Holiday (May Day)
+last Monday in May*		Spring Bank Holiday
+
+3rd Sunday in June		Father's Day
+
+last Monday in August*		Summer Bank Holiday
+15 Sep				Battle of Britain Day
+
+last Sunday in Oct		DST ends (-1h)
+31 Oct				Halloween
+5 Nov				Guy Fawkes' Day
+
+# Thanksgiving and Christmas are also predefined holidays
+day before Christmas 		Christmas Eve
+Christmas*			Christmas Day
+day after Christmas*		Boxing Day
+last day in Dec			New Year's Eve

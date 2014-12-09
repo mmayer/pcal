@@ -1,0 +1,142 @@
+# 
+# This is a 'pcal' input file to test character mappings (PostScript 'vector
+# encodings') for a single character set:
+# 
+#    pcal -f fonttest_koi8u
+# 
+# The characters are printed in ascending numeric order.
+# 
+opt -S   # suppress small prev/next monthly calendars
+opt -B  # leave unused boxes blank
+opt -b all  # use black for all days' numerics
+opt -r KOI8-U   # force the proper character set encoding
+opt -C "KOI8-U (Ukrainian) character mappings"   # centered 'footer' string
+
+all 01  200 \200 SF100000
+all 01  201 \201 SF110000
+all 01  202 \202 SF010000
+all 01  203 \203 SF030000
+all 02  204 \204 SF020000
+all 02  205 \205 SF040000
+all 02  206 \206 SF080000
+all 02  207 \207 SF090000
+all 03  210 \210 SF060000
+all 03  211 \211 SF070000
+all 03  212 \212 SF050000
+all 03  213 \213 upblock
+all 04  214 \214 dnblock
+all 04  215 \215 block
+all 04  216 \216 lfblock
+all 04  217 \217 rtblock
+all 05  220 \220 ltshade
+all 05  221 \221 shade
+all 05  222 \222 dkshade
+all 05  223 \223 integraltp
+all 06  224 \224 filledbox
+all 06  225 \225 periodcentered
+all 06  226 \226 radical
+all 06  227 \227 approxequal
+all 07  230 \230 lessequal
+all 07  231 \231 greaterequal
+all 07  232 \232 space
+all 07  233 \233 integralbt
+all 08  234 \234 degree
+all 08  235 \235 twosuperior
+all 08  236 \236 periodcentered
+all 08  237 \237 divide
+all 09  240 \240 SF430000
+all 09  241 \241 SF240000
+all 09  242 \242 SF510000
+all 09  243 \243 afii10071
+all 10  244 \244 afii10101
+all 10  245 \245 SF390000
+all 10  246 \246 afii10103
+all 10  247 \247 afii10104
+all 11  250 \250 SF250000
+all 11  251 \251 SF500000
+all 11  252 \252 SF490000
+all 11  253 \253 SF380000
+all 12  254 \254 SF280000
+all 12  255 \255 afii10098
+all 12  256 \256 SF260000
+all 12  257 \257 SF360000
+all 13  260 \260 SF370000
+all 13  261 \261 SF420000
+all 13  262 \262 SF190000
+all 13  263 \263 afii10023
+all 13  264 \264 afii10053
+all 14  265 \265 SF230000
+all 14  266 \266 afii10055
+all 14  267 \267 afii10056
+all 14  270 \270 SF410000
+all 14  271 \271 SF450000
+all 15  272 \272 SF460000
+all 15  273 \273 SF400000
+all 15  274 \274 SF540000
+all 15  275 \275 afii10050
+all 15  276 \276 SF440000
+all 16  277 \277 copyright
+all 16  300 \300 afii10096
+all 16  301 \301 afii10065
+all 16  302 \302 afii10066
+all 16  303 \303 afii10088
+all 17  304 \304 afii10069
+all 17  305 \305 afii10070
+all 17  306 \306 afii10086
+all 17  307 \307 afii10068
+all 17  310 \310 afii10087
+all 18  311 \311 afii10074
+all 18  312 \312 afii10075
+all 18  313 \313 afii10076
+all 18  314 \314 afii10077
+all 18  315 \315 afii10078
+all 19  316 \316 afii10079
+all 19  317 \317 afii10080
+all 19  320 \320 afii10081
+all 19  321 \321 afii10097
+all 19  322 \322 afii10082
+all 20  323 \323 afii10083
+all 20  324 \324 afii10084
+all 20  325 \325 afii10085
+all 20  326 \326 afii10072
+all 20  327 \327 afii10067
+all 21  330 \330 afii10094
+all 21  331 \331 afii10093
+all 21  332 \332 afii10073
+all 21  333 \333 afii10090
+all 21  334 \334 afii10095
+all 22  335 \335 afii10091
+all 22  336 \336 afii10089
+all 22  337 \337 afii10092
+all 22  340 \340 afii10048
+all 22  341 \341 afii10017
+all 23  342 \342 afii10018
+all 23  343 \343 afii10040
+all 23  344 \344 afii10021
+all 23  345 \345 afii10022
+all 23  346 \346 afii10038
+all 24  347 \347 afii10020
+all 24  350 \350 afii10039
+all 24  351 \351 afii10026
+all 24  352 \352 afii10027
+all 24  353 \353 afii10028
+all 25  354 \354 afii10029
+all 25  355 \355 afii10030
+all 25  356 \356 afii10031
+all 25  357 \357 afii10032
+all 25  360 \360 afii10033
+all 26  361 \361 afii10049
+all 26  362 \362 afii10034
+all 26  363 \363 afii10035
+all 26  364 \364 afii10036
+all 26  365 \365 afii10037
+all 27  366 \366 afii10024
+all 27  367 \367 afii10019
+all 27  370 \370 afii10046
+all 27  371 \371 afii10045
+all 27  372 \372 afii10025
+all 28  373 \373 afii10042
+all 28  374 \374 afii10047
+all 28  375 \375 afii10043
+all 28  376 \376 afii10041
+all 28  377 \377 afii10044

@@ -1,0 +1,40 @@
+# This file was posted to no.it.os.unix.linux.diverse by Aron Gurski
+#-------------------------------------------------------------------------------
+#
+#   ${HOME}/.calendar - date file for pcal (specific to Norway)
+#
+#-------------------------------------------------------------------------------
+opt -E
+#
+#   Holidays relative to Roman Catholic Easter
+#
+7th Tuesday before Easter           Mardi Gras
+7th Wednesday before Easter         Ash Wednesday
+Sunday before Easter*               Palm Sunday
+Thursday before Easter*             Maundy Thursday
+Friday before Easter*               Good Friday
+Easter*                             Easter Sunday
+Monday after Easter*                Easter Monday
+6th Thursday after Easter*          Ascension Day
+7th Sunday after Easter*            Whitsun
+8th Monday after Easter*            Whitsun Monday
+#
+#   Summer time
+#
+last Sunday in March                Summer time begins (+1 hour)
+last Sunday in October              Summer time ends (-1 hour)
+#
+#   Fixed date holidays
+#
+1 January*                          New Year's Day
+1 April                             April Fool's Day
+1 May*                              Workers Day
+17 May*                             Constitution Day
+day before Christmas*               Christmas Eve
+Christmas*                          Christmas Day
+day after Christmas*                Boxing Day
+31 December*                        New Year's Eve
+#
+#   Just for fun
+#
+2nd full_moon in all                [blue moon]

@@ -1,0 +1,20 @@
+# 
+# This is a 'pcal' input file to test character mappings (PostScript 'vector
+# encodings') for a single character set:
+# 
+#    pcal -f fonttest_arabic
+# 
+# The characters are printed in ascending numeric order.
+# 
+opt -S   # suppress small prev/next monthly calendars
+opt -B   # leave unused boxes blank
+opt -b all   # use black for all days' numerics
+opt -r Arabic   # force the proper character set encoding
+opt -C "ISO 8859-6 (Arabic) character mappings"   # centered 'footer' string
+
+# 
+# This encoding is not currently supported by 'pcal'!
+# 
+ifdef sort
+else
+endif

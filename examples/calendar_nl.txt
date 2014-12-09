@@ -1,0 +1,35 @@
+# pcal .calender file
+#
+# Europeese notatie, Nederlandse taal, A4 formaat, maanstanden, 
+# en Julian date (dag v/h jaar) klein rechtsonder
+opt -E -a nl -P a4 -m -j
+#
+# Verjaardag voorbeeld:
+##12 Jan	Ewald's %-1963Y%Ye Verjaardag
+#
+1 Jan				Nieuwjaarsdag
+1 April				een April
+1 May*				Dag van de Arbeid
+183rd day of year		Halverwege (%l dagen over)
+Good_Friday			Goede Vrijdag
+Easter*				Pasen
+6th Thursday after Easter*	Hemelvaart
+Monday after Easter*		2e Paasdag
+7th Sunday after Easter		Pinksteren
+Monday after 7th Sunday after Easter	2e Pinksterdag
+3 Oct*				Leids ontzet
+5 Dec				PakjesAvond
+6 Dec				Sinterklaas
+day before Christmas*		KerstAvond
+Christmas*			1e Kerstdag
+day after Christmas*		2e Kerstdag
+31 December*			Oudjaar
+#
+last Sunday in March		Begin zomertijd (+1 hour)
+last Sunday in October		Einde zomertijd (-1 hour)
+#
+ifdef v4_8_0 | v4_9_0 | v4_9_1 | v4_10_0
+   F13				Vrijdag de 13e!!
+else
+   Fri on all 13		Vrijdag de 13e!!
+endif

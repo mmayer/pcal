@@ -1,0 +1,110 @@
+# 
+# This is a 'pcal' input file to test character mappings (PostScript 'vector
+# encodings') for a single character set:
+# 
+#    pcal -f fonttest_latin9
+# 
+# The characters are printed in ascending numeric order.
+# 
+opt -S   # suppress small prev/next monthly calendars
+opt -B   # leave unused boxes blank
+opt -b all   # use black for all days' numerics
+opt -r Latin9   # force the proper character set encoding
+opt -C "ISO 8859-15 (Latin9 aka Latin0) character mappings"   # centered 'footer' string
+
+all 01  240 \240 uni00A0
+all 01  241 \241 exclamdown
+all 01  242 \242 cent
+all 01  243 \243 sterling
+all 02  244 \244 Euro
+all 02  245 \245 yen
+all 02  246 \246 Scaron
+all 02  247 \247 section
+all 03  250 \250 scaron
+all 03  251 \251 copyright
+all 03  252 \252 ordfeminine
+all 03  253 \253 guillemotleft
+all 04  254 \254 logicalnot
+all 04  255 \255 uni00AD
+all 04  256 \256 registered
+all 04  257 \257 macron
+all 05  260 \260 degree
+all 05  261 \261 plusminus
+all 05  262 \262 twosuperior
+all 05  263 \263 threesuperior
+all 06  264 \264 Zcaron
+all 06  265 \265 mu
+all 06  266 \266 paragraph
+all 06  267 \267 periodcentered
+all 07  270 \270 zcaron
+all 07  271 \271 onesuperior
+all 07  272 \272 ordmasculine
+all 07  273 \273 guillemotright
+all 08  274 \274 OE
+all 08  275 \275 oe
+all 08  276 \276 Ydieresis
+all 08  277 \277 questiondown
+all 09  300 \300 Agrave
+all 09  301 \301 Aacute
+all 09  302 \302 Acircumflex
+all 09  303 \303 Atilde
+all 10  304 \304 Adieresis
+all 10  305 \305 Aring
+all 10  306 \306 AE
+all 10  307 \307 Ccedilla
+all 11  310 \310 Egrave
+all 11  311 \311 Eacute
+all 11  312 \312 Ecircumflex
+all 11  313 \313 Edieresis
+all 12  314 \314 Igrave
+all 12  315 \315 Iacute
+all 12  316 \316 Icircumflex
+all 12  317 \317 Idieresis
+all 13  320 \320 Eth
+all 13  321 \321 Ntilde
+all 13  322 \322 Ograve
+all 13  323 \323 Oacute
+all 14  324 \324 Ocircumflex
+all 14  325 \325 Otilde
+all 14  326 \326 Odieresis
+all 14  327 \327 multiply
+all 15  330 \330 Oslash
+all 15  331 \331 Ugrave
+all 15  332 \332 Uacute
+all 15  333 \333 Ucircumflex
+all 16  334 \334 Udieresis
+all 16  335 \335 Yacute
+all 16  336 \336 Thorn
+all 16  337 \337 germandbls
+all 17  340 \340 agrave
+all 17  341 \341 aacute
+all 17  342 \342 acircumflex
+all 17  343 \343 atilde
+all 18  344 \344 adieresis
+all 18  345 \345 aring
+all 18  346 \346 ae
+all 18  347 \347 ccedilla
+all 19  350 \350 egrave
+all 19  351 \351 eacute
+all 19  352 \352 ecircumflex
+all 19  353 \353 edieresis
+all 20  354 \354 igrave
+all 20  355 \355 iacute
+all 20  356 \356 icircumflex
+all 20  357 \357 idieresis
+all 21  360 \360 eth
+all 21  361 \361 ntilde
+all 21  362 \362 ograve
+all 21  363 \363 oacute
+all 22  364 \364 ocircumflex
+all 22  365 \365 otilde
+all 22  366 \366 odieresis
+all 22  367 \367 divide
+all 23  370 \370 oslash
+all 23  371 \371 ugrave
+all 23  372 \372 uacute
+all 23  373 \373 ucircumflex
+all 24  374 \374 udieresis
+all 24  375 \375 yacute
+all 24  376 \376 thorn
+all 24  377 \377 ydieresis

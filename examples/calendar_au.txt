@@ -1,0 +1,57 @@
+# Bank holidays for Australia
+# taken from http://www.vergenet.net/~conrad/tmp
+
+Jan 28	Australia Day Holiday (Australia, except NSW, Vic)
+Jun 10	Queen's Birthday Holiday (Australia, except WA)
+
+#
+# ACT, NSW, common
+# 
+Mar 18	Canberra Day (ACT)
+1st Monday in Aug	Bank Holiday (ACT, NSW)
+1st Monday in Oct	Labour Day (ACT, NSW, SA)
+
+#
+# Victoria
+#
+2nd Monday in Mar	Labour Day (Vic)
+1st Tuesday in Nov	Melbourne Cup (Vic)
+
+#
+# Tasmania
+#
+Feb 11	Regatta Day (Tas)
+Feb 27	Launceston Cup (Tas)
+Mar 11	Eight Hours Day (Tas)
+Oct 10	Launceston Show Day (Tas)
+Oct 24	Hobart Show Day (Tas)
+Nov 04	Recreation Day (N Tas)
+
+#
+# South Australia
+#
+May 20	Adelaide Cup (SA)
+Dec 26	Proclamation Day (SA)
+
+#
+# Western Australia
+#
+1st Monday in Mar	Labour Day (WA)
+1st Monday in Jun	Foundation Day (WA)
+Sep 30	Queen's Birthday (WA)
+
+#
+# Northern Territory
+#
+1st Monday in May	May Day (NT)
+1st Friday in Jul	Alice Springs Show Day (NT)
+2nd Friday in Jul	Tennant Creek Show Day (NT)
+3rd Friday in Jul	Katherine Show Day (NT)
+last Friday in Jul	Darwin Show Day (NT)
+1st Monday in Aug	Picnic Day (NT)
+
+#
+# Queensland
+#
+1st Monday in May	Labour Day (Qld)
+Aug 14	RNA Show Day (Brisbane metro)

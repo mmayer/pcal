@@ -1,0 +1,39 @@
+# Bank holidays in Finland
+# This file contains the main holidays. No warrenty for them being
+# correct or complete.
+#
+# last modified Thu Apr 10 16:32:06 GTBDT 2003 by Stefan Fronzek
+#
+# add an asterisk (*) to the date to specify a bank holiday
+
+# OVERRIDE THE PROGRAM DEFAULTS
+opt -E	# European date format
+opt -a fi	# print out Finnish days and months
+
+# print the week and day number on each Sunday
+#all Sunday in all*		 <I>P‰iv‰ %j, viiko %w</I>
+
+1 Jan*				Uudenvuodenp‰iv‰
+6 Jan*				Loppiainen
+
+# Easter is a predefined holiday, calculated by Pcal for each year
+Good_Friday*			Pitk‰perjantaina
+Easter				P‰‰si‰isp‰iv‰
+Mon after Easter*		2. p‰‰si‰sp‰iv‰
+
+6th Thursday after Easter*	Helatorstai
+
+last Sunday in March		Kes‰aika (+1t)
+
+1 May*				Vappu
+
+21 June*			Juhannus
+
+last Sunday in Oct		Talviaika (-1t)
+
+6 December*			Itsen‰isyysp‰iv‰
+# Thanksgiving and Christmas are also predefined holidays
+day before Christmas* 		Jouluaatto
+Christmas*			Joulup‰iv‰
+day after Christmas*		Tapaninp‰iv‰
+last day in Dec			Uudenvuodenaatto

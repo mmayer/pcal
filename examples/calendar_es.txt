@@ -1,0 +1,73 @@
+# National holidays in Spain (.calendar file for pcal)
+# This file must be encoded in Latin1
+
+
+# Author: Francisco José Marín Pérez (pacogeek@gmail.com) (http://www.tverde.blogspot.com)
+
+
+
+# ==========
+# Changelog
+# ==========
+# (dd/mm/yy)
+# 3/8/2007 First version of this file.
+# 16/12/2007 B. Marr -- remove unneeded 'opt -r' line; fix spelling typo.
+# 
+
+
+
+# Holidays in Spain differ between regions. This file contains only the official holidays in
+# all Spain (I take them from  http://spain.info) 
+
+
+
+
+# ============
+# SOME OPTIONS
+# ============
+opt -E			# Parse European dates ("dd/mm/{/yy}" and "dd month")
+opt -a es		# Spanish for the day/month names
+opt -n Times-Bold/10 # Make the notes more clear
+opt -F Monday  # Start the week on Monday
+opt -s 1:0:0 	# holidays in red color	
+
+
+# ============================= 
+# OFICIAL HOLIDAYS IN ALL SPAIN
+# =============================
+
+1 1* Año Nuevo
+6 1* Epifanía
+Friday before Easter* Viernes Santo # La semana santa es la semana anterior a la Pascua
+1 5* Día del trabajo
+15 8* Asunción de la Virgen
+12 10* Virgen del Pilar
+1 11* Festividad de Todos los Santos
+6 12* Día de la Constitución
+8 12* Festividad de la Inmaculada Concepción
+25 12* Dia de Navidad
+
+
+#  *** PLEASE, COMMENT YOUR LOCAL HOLIDAYS ***
+
+# =============================
+# OFICIAL HOLIDAY IN ANDALUCÍA
+# =============================
+# 28 2* Día de Andalucía
+
+# =============
+# OTHERS EVENTS
+# =============
+14 2 <i> San Valentín </i>
+19 3 <i>Día del Padre</i>
+first Sunday in May <i>Día de la Madre</i>
+31 10 <i>Hallowen</i>
+24 12 <i>Nochebuena</i>
+28 12 <i>Día de los Inocentes</i>
+31 12 <i>Nochevieja</i>
+
+# ====================
+# DAYLIGHT SAVING TIME 
+# ====================
+last Sunday in March <i>Horario de verano, se adelanta una hora, a las 2:00 serán las 3:00</i>
+last Sunday in October <i>Horario de invierno, se atrasa una hora, a las 3:00 serán las 2:00</i>

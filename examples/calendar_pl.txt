@@ -1,0 +1,45 @@
+# Polish Dates
+#
+# Created by Dominik 'Chiron' Derlatka
+
+opt -E
+opt -a pl
+opt -F Monday
+opt -z 1
+# opt -z 2 CEST
+opt -P a4
+
+define christian
+define national
+define pagan
+
+if christian
+  Easter			Niedziela Wielkanocna
+  Mon after Easter*		Poniedzia\263ek Wielkanocny
+  3 May*			Naj\266wi\352tszej Marii Panny
+  Thu after 59th day after Easter*	Bo\277e Cia\263o
+  1 Nov*			Wszystkich \246wi\352tych
+  day before Christmas		Wigilia
+  Christmas*			Bo\277e Narodzenie
+  day after Christmas*		Bo\277e Narodzenie
+endif
+
+if national
+  1 Jan*			Nowy Rok
+  1 May*			\246wi\352to Pracy
+  2 May				Dzie\361 Flagi Rzeczypospolitej Polskiej
+  3 May*			\246wi\352to Konstytucji 3 Maja
+  15 Aug*			\246wi\352to Wojska Polskiego
+  11 Nov*			\246wi\352to Niepodleg\263o\266ci
+endif
+
+if pagan
+  21 Mar			Jare \246wi\352to
+  21 Jun			\246wi\352to Ognia i Wody
+  22 Jun			\246wi\352to Ognia i Wody
+  23 Sep			\246wi\352to Plon\363w
+  2 Nov				Zaduszki
+  21 Dec			Godowe \246wi\352to
+  22 Dec			Godowe \246wi\352to
+  last day in Dec		Sylwester
+endif

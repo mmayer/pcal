@@ -1,0 +1,132 @@
+#
+# US Holidays
+#
+#   Sources:
+#       http://aa.usno.navy.mil/faq/docs/holidays.html
+#       http://www.smart.net/~mmontes/ushols.html
+#       http://www4.law.cornell.edu/uscode/html/uscode36/usc_sup_01_36_06_I_08_A_10_1.html
+#
+# Originally by J. Rhett Hooper, with minor updates and corrections by Bill Marr
+
+opt -A				# American date format
+
+year all			# Reset the year to wildcard
+
+##
+## Federal Holidays
+##   see http://www4.law.cornell.edu/uscode/html/uscode05/usc_sec_05_00006103----000-.html
+##
+Jan 1*				New Year's Day
+Jul 4*				Independence Day
+Nov 11*				Veterans Day
+Dec 25*				Christmas Day
+# Where any of above fall on a weekend, most institutions will observe a
+# holiday on the nearest weekday (Fri, or Mon.).  The following will mark
+# those days as holidays.  This doesn't seem to work as I expect for New
+# Year's.  It seems to be a problem with spanning a year boundary, since
+# the holiday to be marked may fall in the previous year (for an example
+# see: Dec.  31, 2004.)
+weekday nearest Jan 1*		# nonworkday in observance of New Year's Day
+weekday nearest Jul 4*		# nonworkday in observance of Independence Day
+weekday nearest Nov 11*		# nonworkday in observance of Veterans Day
+weekday nearest Dec 25*		# nonworkday in observance of Christmas Day
+# Martin Luther King, Jr.'s actual birthdate is January 15, 1929, but US
+# Code specifies the holiday fall on the third Monday in January.  January
+# 15 and the third Monday will only coincide if January 1 is a Monday.
+third Mon in Jan*		Birthday of Martin Luther King, Jr. (observed)
+# George Washington's actual birthdate is February 22, 1732, (February 11,
+# 1732 in the Julian calendar system that was in use at the time) but US
+# Code specifies that the holiday fall on the third Monday in February.
+# February 22 can never be the third Monday.  This holiday is often referred
+# to as "Presidents' Day" to also honor Abraham Lincoln.
+third Mon in Feb*		Washington's Birthday (observed)
+last Mon in May*		Memorial Day
+first Mon in Sep*		Labor Day
+second Mon in Oct*		Columbus Day
+fourth Thu in Nov*		Thanksgiving
+
+
+##
+## Other civic dates
+##
+weekday on_or_after Apr 15	Federal Income Taxes due
+Tue after first Mon in Nov	General Election Day
+# Inauguration Day is Jan 20 of every fourth year after 1965, unless it
+# falls on a Sunday, in which case another day is selected.  I'm not sure
+# how it is selected, and since it next happens in 2013, I'll just list a
+# couple.
+1-20-2005			Inauguration Day
+1-20-2009			Inauguration Day
+year all			# Reset the year to wildcard
+
+
+##
+## Selected Religious Holidays
+##
+Sun before Easter		Palm Sunday
+Good_Friday			Good Friday
+Easter				Easter Sunday
+day before Christmas 		Christmas Eve
+
+
+##
+## Selected Secular Holidays
+##
+Feb 2				Groundhog Day
+Feb 12				Lincoln's Birthday
+Feb 14				Valentine's Day
+Feb 22				Washington's Birthday
+Mar 17				St. Patrick's Day
+Apr 1				April Fool's Day
+Apr 22				Earth Day
+Wed before last Sat in Apr	Administrative Assistants' Day
+last Fri in Apr			Arbor Day
+second Sun in May		Mother's Day
+third Sun in Jun		Father's Day
+fourth Sun in Jul		Parents' Day
+Sun after first Mon in Sep	National Grandparents Day
+Oct 31				Halloween
+last day in Dec			New Year's Eve
+
+
+##
+## Daylight Savings
+##
+# 
+# Pre-2007:
+# 
+# first Sun in Apr		DST begins (+1h)
+# last Sun in Oct		DST ends (-1h)
+# 
+# 2007 and beyond:
+# 
+second Sun in Mar		DST begins (+1h)
+first Sun in Nov		DST ends (-1h)
+
+
+##
+## Selected Patriotic Observances
+##   See http://www4.law.cornell.edu/uscode/html/uscode36/usc_sup_01_36_06_I_08_A_10_1.html
+##
+Feb 1				National Freedom Day
+Apr 13				Thomas Jefferson's birthday
+May 15				Peace Officers Memorial Day
+first Thu in May		National Day of Prayer
+Jun 14				Flag Day
+Sun on_or_before Jun 14		National Flag Week
+Mon after Sun on_or_before Jun 14	National Flag Week
+Tue after Sun on_or_before Jun 14	National Flag Week
+Wed after Sun on_or_before Jun 14	National Flag Week
+Thu after Sun on_or_before Jun 14	National Flag Week
+Fri after Sun on_or_before Jun 14	National Flag Week
+Sat after Sun on_or_before Jun 14	National Flag Week
+Sep 11				Patriot Day
+Sep 17				Citizenship Day
+Sep 17				Constitution Week
+Sep 18				Constitution Week
+Sep 19				Constitution Week
+Sep 20				Constitution Week
+Sep 21				Constitution Week
+Sep 22				Constitution Week
+Sep 23				Constitution Week
+Dec 7				National Pearl Harbor Remembrance Day

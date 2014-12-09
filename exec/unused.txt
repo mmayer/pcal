@@ -1,0 +1,6 @@
+This file exists only to ensure that this otherwise-empty directory is
+properly created when you extract the files in the 'tar' file.  You may safely
+remove it once the 'tar' files have been extracted.
+
+This problem seems to exist only with extraction utilities (e.g. WinZip) that
+fail to create a subdirectory when there are no files in it.

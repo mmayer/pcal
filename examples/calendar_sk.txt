@@ -1,0 +1,102 @@
+#
+# Sk Holidays
+#
+#   Sources:
+#       http://www-8.vlada.gov.sk/index.php?ID=1010
+#	
+# For pcal created by Zdenko Podobny
+
+opt -a sk			# Slovak for the day/month names
+opt -E				# Europe date format
+opt -F Monday			# Week start on Monday
+opt -P a4			# paper size: A4 
+opt -m				# draw 'moon phase' icon at full/new/quarter moons 
+# opt -l			# generate landscape-style calendar (default)
+opt -p				# generate portrait-style calendar
+year all			# Reset the year to wildcard
+
+###opt -d Helvetica-Bold/30 -t Helvetica-Bold -n Helvetica/8
+###opt -d Times-Roman/18 -t Times-Roman/30 -n Times-Roman/
+###opt -d AvantGarde-Book/30 -t AvantGarde-Book -n Helvetica/8 
+opt -d Helvetica-Bold/30 -t Helvetica-Bold -n Helvetica-Narrow/10
+
+# 
+# Override the default colors for the 'date numerics' (i.e. the numbers
+# printed in the day box) (enabled with the '-g', '-G', or '-O' options) and
+# for the fill color of empty (unused) 'day' boxes.
+# 
+opt -s 1.0:0.0:0.0/1.0:1.0:0.8  # red numerals / light yellowish boxes
+
+
+
+##
+## Statne sviatky/Public Holidays
+##
+1 Jan*				\fBNov\375 Rok\fP	# New Year Day
+1 Jan*				De\362 vzniku Slovenskej republiky (1993)	# Independence Day (1993) 
+5 Jul*				\fBSviatok sv\344t\351ho Cyrila a Metoda # Cyril, Metod (their arrival into Great-Moravia's Empire in 863) 
+29 Aug*				\fBV\375ro\350ie SNP # Slovak National Uprising (1944) 
+1 Sep*				\fBDe\362 Ústavy Slovenskej republiky # Constitution Day (1992) 
+17 Nov*				\fBDe\362 boja za slobodu a demokraciu # Day of Fight for Democracy 
+
+##
+## Dni pracovneho pokoja/Bank Holidays
+##
+6 Jan*				Zjavenie P\341na (Traja kr\341li)	# Epiphany 
+1 May*				Sviatok Pr\341ce	# Labor Day 
+8 May*				De\362 v\355\273azstva na fa\271iznom (1945)	# Victory over Fascism Day (1945) 
+15 Sep*				Sedembolestn\341 Panna M\341ria # Our Lady of Sorrows 
+1 Nov*				Sviatok v\271etk\375ch sv\344t\375ch # All Saints' Day
+24 Dec*				\251tedr\375 de\362 #
+25 Dec*				Prv\375 sviatok viano\350n\375 # 1st Christmas Day 
+26 Dec*				Druh\375 sviatok viano\350n\375 # 2nd Christmas Day
+##
+## Pohyblive sviatky
+##
+Good_Friday*			Ve\265k\375 piatok # Good Friday
+Easter*				Ve\265kono\350n\341 nede\265a # Easter Sunday
+Mon after Easter*		Ve\265kono\350n\375 pondelok # Easter Monday
+
+##
+## Cirkevne sviatky
+##
+Sun before Easter		Kvetn\341 nede\265a # Palm Sunday
+
+##
+## Memorial Days/Pamatne dni
+##
+## http://www.calendar.sk/nameday-sksklin.php
+
+25 May				De\362 z\341pasu za \265udsk\351 pr\341va
+13 Apr				De\362 nespravodlivo st\355han\375ch
+4 May				V\375ro\350ie \372mrtia M.R. \251tef\341nika
+7 Jun				V\375ro\350ie Memoranda n\341roda slovensk\351ho
+5 Jul				De\362 zahrani\350n\375ch Slov\341kov
+17 Jul				V\375ro\350ie Deklar\341cie o zvrchovanosti SR
+4 Aug				De\362 Matice slovenskej
+9 Sep				De\362 obet\355 holokaustu a rasov\351ho n\341silia
+19 Sep				De\362 vzniku Slovenskej n\341rodnej rady
+6 Oct				De\362 obet\355 Dukly
+27 Oct				De\362 \350ernovskej trag\351die
+28 Oct				De\362 vzniku samostatn\351ho \306esko-slovensk\351ho \271t\341tu
+29 Oct				De\362 narodenia \245udov\355ta \251t\372ra
+30 Oct				V\375ro\350ie Deklar\341cie slovensk\351ho n\341roda
+31 Oct				De\362 reform\341cie
+30 Dec				De\362 vyhl\341senia Slovenska za samostatn\372 cirkevn\372 provinciu
+
+##
+## Selected Secular Holidays
+##
+14 Feb				Sviatok Sv. Valent\355na	# Valentine's Day
+1 Apr 				Prv\375 apr\355l	# April Fool's Day
+second Sun in May		De\362 matiek	# Mother's Day
+last day in Dec			Silvester	# New Year's Eve
+
+
+##
+## Daylight Savings
+##
+first Sun in Apr		Letn\375 \350as (+1h)	# DST begins (+1h)
+last Sun in Oct			Zimn\375 \350as (-1h)	# DST ends (-1h)
+
+input-language sk

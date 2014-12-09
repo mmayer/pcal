@@ -1,0 +1,293 @@
+#!/bin/csh -f
+#
+# [Here it is... the original shell script and PostScript boilerplate that
+# would eventually become "pcal".  Modified slightly by A. W. Rogers to
+# correct bug in leap year algorithm, suppress the illegible weekday names
+# in the small calendars, use the more common "-d" flag (instead of "-P") to
+# specify line printer destination, default to the current month/year, and
+# add the current century to years between 0 and 99.]
+#
+# Original From: patwood@unirot.UUCP (Patrick Wood)
+# 
+# The following is a PostScript program to print calendars.  It doesn't
+# work on or before 1752.
+# 
+# Shell stuff added 3/9/87 by King Ables
+# 
+# Made pretty by tjt 1988
+#
+# Tim Tessin - Lawrence Livermore National Laboratory 
+# tjt@tis.llnl.gov
+# Phone: (415) 423-4560 / 422-8971
+# Run like the following: pscalendar -Pstrudel 4 1988     - for April 1988
+#
+set printer="cat"
+
+top:
+if ($#argv > 0) then
+	switch ("$argv[1]")
+		case -d*:
+		case -P*:
+			set printer="lp "`echo $argv[1] | sed s/-P/-d/`
+			shift argv
+			goto top
+		case *:
+			if ($?month) then
+				set year="$argv[1]"
+			else if ($?year) then
+				echo "usage: $0 [-dprinter] month year"
+				exit 1
+			else
+				set month="$argv[1]"
+			endif
+			shift argv
+			goto top
+	endsw
+endif
+
+if ($?year) then
+else 
+	@ month = `date +%m`
+	@ year = `date +%Y`
+endif
+
+if ($year >= 0 && $year < 100) then
+	@ year += 100 * (`date +%Y` / 100)
+endif
+
+cat <<END-OF-CALENDAR | $printer
+%!PS-Adobe-1.0
+%%BoundingBox: 0 0 612 792
+%%Orientation: Landscape
+
+% PostScript program to draw calendar
+% Copyright (C) 1987 by Pipeline Associates, Inc.
+% Permission is granted to modify and distribute this free of charge.
+
+% /month should be set to a number from 1 to 12
+% /year should be set to the year you want
+% you can change the title and date fonts, if you want
+% we figure out the rest
+% won't produce valid calendars before 1800 (weird stuff happened
+% in September of 1752)
+
+/month $month def
+/year $year def
+/titlefont /Times-Bold def
+/dayfont /Helvetica-Bold def
+
+/month_names [ (January) (February) (March) (April) (May) (June) (July)
+		(August) (September) (October) (November) (December) ] def
+
+/prtnum { 3 string cvs show} def
+
+/drawgrid {		% draw calendar boxes
+	dayfont findfont 10 scalefont setfont
+	0 1 6 {
+		dup dup 100 mul 40 moveto
+		submonth 0 eq {
+			[ (Sunday) (Monday) (Tuesday) (Wednesday)
+			  (Thursday) (Friday) (Saturday) ] exch get
+			100 center
+		} if
+		100 mul 35 moveto
+		1.0 setlinewidth
+		0 1 5 {
+			gsave
+			100 0 rlineto 
+			0 -80 rlineto
+			-100 0 rlineto
+			closepath stroke
+			grestore
+			0 -80 rmoveto
+		} for
+	} for
+} def
+
+/drawnums {		% place day numbers on calendar
+	dayfont findfont 30 scalefont setfont
+	/start startday def
+	/days ndays def
+	start 100 mul 5 add 10 rmoveto
+	1 1 days {
+		/day exch def
+		gsave
+		day start add 7 mod 0 eq
+		{
+			submonth 0 eq
+			{
+				.8 setgray
+			} if
+		} if
+		day start add 7 mod 1 eq
+		{
+			submonth 0 eq
+			{
+				.8 setgray
+			} if
+		} if
+		day prtnum
+		grestore
+		day start add 7 mod 0 eq
+		{
+			currentpoint exch pop 80 sub 5 exch moveto
+		}
+		{
+			100 0 rmoveto
+		} ifelse
+	} for
+} def
+
+/drawfill {		% place fill squares on calendar
+	/start startday def
+	/days ndays def
+	0 35 rmoveto
+	1.0 setlinewidth
+	0 1 start 1 sub {
+		gsave
+		.9 setgray
+		100 0 rlineto 
+		0 -80 rlineto
+		-100 0 rlineto
+		closepath fill
+		grestore
+		100 0 rmoveto
+	} for
+	submonth 1 eq
+	{
+		/lastday 42 def
+		600 -365 moveto
+	}
+	{
+		/lastday 40 def
+		400 -365 moveto
+	} ifelse
+	lastday -1 ndays start 1 add add
+	{
+		/day exch def
+		gsave
+		.9 setgray
+		100 0 rlineto 
+		0 -80 rlineto
+		-100 0 rlineto
+		closepath fill
+		grestore
+		day 7 mod 1 eq
+		{
+			600 -365 80 add moveto
+		}
+		{
+			-100 0 rmoveto
+		} ifelse
+	} for
+} def
+
+/isleap {		% is this a leap year?
+	year 4 mod 0 eq			% multiple of 4
+	year 100 mod 0 ne 		% not century
+	year 400 mod 0 eq or and	% unless it's divisible by 400
+} def
+
+/days_month [ 31 28 31 30 31 30 31 31 30 31 30 31 ] def
+
+/ndays {		% number of days in this month
+	days_month month 1 sub get
+	month 2 eq	% Feb
+	isleap and
+	{
+		1 add
+	} if
+} def
+
+/startday {		% starting day-of-week for this month
+	/off year 1 sub def	% offset from start of "epoch"
+	year
+	off 4 idiv add		% number of leap years
+	off 100 idiv sub	% number of centuries
+	off 400 idiv add	% number of 400-year intervals
+	/off exch def
+	1 1 month 1 sub {	% add days in previous months
+		/idx exch def
+		days_month idx 1 sub get
+		idx 2 eq
+		isleap and
+		{
+			1 add
+		} if
+		/off exch off add def
+	} for
+	off 7 mod		% 0--Sunday, 1--monday, etc.
+} def
+
+/center {		% center string in given width
+	/width exch def
+	/str exch def width str 
+	stringwidth pop sub 2 div 0 rmoveto str show
+} def
+
+/calendar
+{
+	titlefont findfont 48 scalefont setfont
+	0 60 moveto
+	/month_name month_names month 1 sub get def
+	month_name show
+	/yearstring year 10 string cvs def
+	700 yearstring stringwidth pop sub 60 moveto
+	yearstring show
+
+	0 0 moveto
+	drawnums
+
+	0 0 moveto
+	drawfill
+
+	0 0 moveto
+	drawgrid
+} def
+
+90 rotate
+50 -120 translate
+/submonth 0 def
+calendar
+month 1 sub 0 eq
+{
+	/lmonth 12 def
+	/lyear year 1 sub def
+}
+{
+	/lmonth month 1 sub def
+	/lyear year def
+} ifelse
+month 1 add 13 eq
+{
+	/nmonth 1 def
+	/nyear year 1 add def
+} 
+{
+	/nmonth month 1 add def
+	/nyear year def
+} ifelse
+/submonth 1 def
+/year lyear def
+/month lmonth def
+500 -365 translate
+gsave
+.138 .138 scale
+10 -120 translate
+calendar
+grestore
+/submonth 1 def
+/year nyear def
+/month nmonth def
+100 0 translate
+gsave
+.138 .138 scale
+10 -120 translate
+calendar
+grestore
+
+showpage
+
+END-OF-CALENDAR
+
+exit 0

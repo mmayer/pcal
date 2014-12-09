@@ -1,0 +1,110 @@
+# 
+# This is a 'pcal' input file to test character mappings (PostScript 'vector
+# encodings') for a single character set:
+# 
+#    pcal -f fonttest_cyrillic
+# 
+# The characters are printed in ascending numeric order.
+# 
+opt -S   # suppress small prev/next monthly calendars
+opt -B  # leave unused boxes blank
+opt -b all  # use black for all days' numerics
+opt -r Cyrillic   # force the proper character set encoding
+opt -C "ISO 8859-5 (Cyrillic) character mappings"   # centered 'footer' string
+
+all 01  240 \240 uni00A0
+all 01  241 \241 afii10023
+all 01  242 \242 afii10051
+all 01  243 \243 afii10052
+all 02  244 \244 afii10053
+all 02  245 \245 afii10054
+all 02  246 \246 afii10055
+all 02  247 \247 afii10056
+all 03  250 \250 afii10057
+all 03  251 \251 afii10058
+all 03  252 \252 afii10059
+all 03  253 \253 afii10060
+all 04  254 \254 afii10061
+all 04  255 \255 uni00AD
+all 04  256 \256 afii10062
+all 04  257 \257 afii10145
+all 05  260 \260 afii10017
+all 05  261 \261 afii10018
+all 05  262 \262 afii10019
+all 05  263 \263 afii10020
+all 06  264 \264 afii10021
+all 06  265 \265 afii10022
+all 06  266 \266 afii10024
+all 06  267 \267 afii10025
+all 07  270 \270 afii10026
+all 07  271 \271 afii10027
+all 07  272 \272 afii10028
+all 07  273 \273 afii10029
+all 08  274 \274 afii10030
+all 08  275 \275 afii10031
+all 08  276 \276 afii10032
+all 08  277 \277 afii10033
+all 09  300 \300 afii10034
+all 09  301 \301 afii10035
+all 09  302 \302 afii10036
+all 09  303 \303 afii10037
+all 10  304 \304 afii10038
+all 10  305 \305 afii10039
+all 10  306 \306 afii10040
+all 10  307 \307 afii10041
+all 11  310 \310 afii10042
+all 11  311 \311 afii10043
+all 11  312 \312 afii10044
+all 11  313 \313 afii10045
+all 12  314 \314 afii10046
+all 12  315 \315 afii10047
+all 12  316 \316 afii10048
+all 12  317 \317 afii10049
+all 13  320 \320 afii10065
+all 13  321 \321 afii10066
+all 13  322 \322 afii10067
+all 13  323 \323 afii10068
+all 14  324 \324 afii10069
+all 14  325 \325 afii10070
+all 14  326 \326 afii10072
+all 14  327 \327 afii10073
+all 15  330 \330 afii10074
+all 15  331 \331 afii10075
+all 15  332 \332 afii10076
+all 15  333 \333 afii10077
+all 16  334 \334 afii10078
+all 16  335 \335 afii10079
+all 16  336 \336 afii10080
+all 16  337 \337 afii10081
+all 17  340 \340 afii10082
+all 17  341 \341 afii10083
+all 17  342 \342 afii10084
+all 17  343 \343 afii10085
+all 18  344 \344 afii10086
+all 18  345 \345 afii10087
+all 18  346 \346 afii10088
+all 18  347 \347 afii10089
+all 19  350 \350 afii10090
+all 19  351 \351 afii10091
+all 19  352 \352 afii10092
+all 19  353 \353 afii10093
+all 20  354 \354 afii10094
+all 20  355 \355 afii10095
+all 20  356 \356 afii10096
+all 20  357 \357 afii10097
+all 21  360 \360 afii61352
+all 21  361 \361 afii10071
+all 21  362 \362 afii10099
+all 21  363 \363 afii10100
+all 22  364 \364 afii10101
+all 22  365 \365 afii10102
+all 22  366 \366 afii10103
+all 22  367 \367 afii10104
+all 23  370 \370 afii10105
+all 23  371 \371 afii10106
+all 23  372 \372 afii10107
+all 23  373 \373 afii10108
+all 24  374 \374 afii10109
+all 24  375 \375 section
+all 24  376 \376 afii10110
+all 24  377 \377 afii10193

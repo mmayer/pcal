@@ -1,0 +1,276 @@
+<HTML>
+<!--
+
+	HTML front end to generate single-month calendar(s) using pcal;
+	allows user to select the most common options by means of menus,
+	input forms, and radio buttons.
+
+	Requires pcal.cgi (Bourne shell script to decode query string
+	generated here and execute pcal with selected options), typically
+	in the cgi-bin directory; edit the "ACTION" field in the <FORM>
+	entry to point to it.
+
+-->
+<HEAD>
+<TITLE>pcal (single-month mode)</TITLE>
+</HEAD>
+
+<BODY>
+<H2 ALIGN=CENTER>Generate Monthly Calendar</H2>
+
+                       <!-- start of form -->
+
+<FORM ACTION="http://yourpath/cgi-bin/pcal.cgi" METHOD=GET>
+
+<!-- menu for starting month -->
+
+<!--
+
+     If you felt ambitious, you could delete the "current month" option
+     below and write a simple .cgi script to edit this boilerplate on
+     the fly, appending the "SELECTED" tag to the entry for the current
+     month (as determined by 'date +%m') and filling in the current year
+     as well.  It might look something like this:
+
+	#!/bin/sh
+	#
+	# QUERY_STRING contains absolute path to raw .html boilerplate
+	
+	echo "Content-type: text/html"		# magic header
+	echo ""
+	sed -e '/NAME=year/s/VALUE=""/VALUE="'`date +%Y`'"/' \
+	        -e '/VALUE="'`date +%m`'"/s/>/ SELECTED >/' $QUERY_STRING
+	exit 0
+
+    ... and would be invoked as <a href=path_to_script?path_to_html>...</a>
+	(or <a href=path_to_script/path_to_html>...</a>, in which case
+	QUERY_STRING should be replaced with PATH_TRANSLATED)
+
+-->
+
+<P><B><FONT SIZE=+1>Month:</FONT></B>
+<SELECT NAME=month>
+<OPTION VALUE="" SELECTED> current month
+<OPTION VALUE="01"> January
+<OPTION VALUE="02"> February
+<OPTION VALUE="03"> March
+<OPTION VALUE="04"> April
+<OPTION VALUE="05"> May
+<OPTION VALUE="06"> June
+<OPTION VALUE="07"> July
+<OPTION VALUE="08"> August
+<OPTION VALUE="09"> September
+<OPTION VALUE="10"> October
+<OPTION VALUE="11"> November
+<OPTION VALUE="12"> December
+</SELECT>
+
+<!-- input form for starting year -->
+
+<B><FONT SIZE=+1>Year:</FONT></B>
+<INPUT TYPE=text NAME=year SIZE=4 VALUE="" MAXLENGTH=4>
+
+<!-- input form for number of months -->
+
+<B><FONT SIZE=+1>No. of months:</FONT></B>
+<INPUT TYPE=text NAME=nmonths SIZE=2 VALUE="1" MAXLENGTH=2>
+<P>
+
+<!-- 'drop-down' list to select language -->
+
+<B>Language:</B>
+<SELECT NAME=lang>
+<OPTION VALUE="-aca"> Catalan
+<OPTION VALUE="-acs"> Czech
+<OPTION VALUE="-ada"> Danish
+<OPTION VALUE="-anl"> Dutch
+<OPTION VALUE="-aen" SELECTED> English
+<OPTION VALUE="-aeo"> Esperanto
+<OPTION VALUE="-aet"> Estonian
+<OPTION VALUE="-afi"> Finnish
+<OPTION VALUE="-afr"> French
+<OPTION VALUE="-ade"> German
+<OPTION VALUE="-ael"> Greek
+<OPTION VALUE="-aha"> Hawaiian
+<OPTION VALUE="-ahu"> Hungarian
+<OPTION VALUE="-ait"> Italian
+<OPTION VALUE="-alv"> Latvian
+<OPTION VALUE="-alt"> Lithuanian
+<OPTION VALUE="-apl"> Polish
+<OPTION VALUE="-apt"> Portuguese
+<OPTION VALUE="-aro"> Romanian
+<OPTION VALUE="-aru"> Russian
+<OPTION VALUE="-ask"> Slovak
+<OPTION VALUE="-aes"> Spanish
+<OPTION VALUE="-asv"> Swedish
+<OPTION VALUE="-auk"> Ukrainian
+</SELECT>
+<br>
+
+<!-- radio buttons to select output format -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Output Format</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=htmlout VALUE="" CHECKED> PostScript (PS)
+<br>
+<INPUT TYPE=RADIO NAME=htmlout VALUE="-H"> HTML
+</td></tr></table>
+<br>
+
+<!-- radio buttons to select orientation -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Orientation (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=mode VALUE="-l" CHECKED> landscape
+<br>
+<INPUT TYPE=RADIO NAME=mode VALUE="-p"> portrait
+</td></tr></table>
+<br>
+
+<!-- 'drop-down' list to select paper size -->
+
+<B>Paper Size (PS Only):</B>
+<SELECT NAME=papersize>
+<OPTION VALUE="-Pletter" SELECTED> U.S. Letter
+<OPTION VALUE="-Plegal"> U.S. Legal
+<OPTION VALUE="-Pa4"> International A4
+<OPTION VALUE="-Ptabloid"> Tabloid (11x17 inches)
+</SELECT>
+<br>
+<br>
+
+<!-- radio buttons to select moon icons -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Moon Phase Graphics (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=moons VALUE="" CHECKED> none
+<br>
+<INPUT TYPE=RADIO NAME=moons VALUE=-m> only on full / new / half (1st and last quarter) moon days
+<br>
+<INPUT TYPE=RADIO NAME=moons VALUE=-M> every day
+</td></tr></table>
+<br>
+
+<!-- radio buttons to select Julian dates -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Julian Date Annotation (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=jdates VALUE="" CHECKED> none
+<br>
+<INPUT TYPE=RADIO NAME=jdates VALUE=-j> 'day of year' ordinal
+<br>
+<INPUT TYPE=RADIO NAME=jdates VALUE=-J> 'day of year' ordinal and 'days left in year'
+</td></tr></table>
+<br>
+
+<!-- radio buttons to select placement of small calendars -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Prev/Next Month Mini-Calendars (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=smcal VALUE="" CHECKED> last two boxes
+<br>
+<INPUT TYPE=RADIO NAME=smcal VALUE="-k"> first two boxes
+<br>
+<INPUT TYPE=RADIO NAME=smcal VALUE="-K"> first and last box
+<br>
+<INPUT TYPE=RADIO NAME=smcal VALUE="-S"> neither
+</td></tr></table>
+<br>
+
+<!-- use 2 adjacent groups of radio buttons to select fonts -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=2>Font Selections (PS only)</th></tr>
+<tr align=center bgcolor="#ffffd0">
+<th colspan=1>Title Font</th>
+<th colspan=1>Day Numerics Font</th>
+</tr>
+<tr align=left>
+<!-- radio buttons to select font for titles, etc -->
+<td>
+<INPUT TYPE=RADIO NAME=tfont VALUE="AvantGarde-Book"> Avant-Garde
+<br>
+<INPUT TYPE=RADIO NAME=tfont VALUE="Helvetica-Bold" CHECKED> Helvetica
+<br>
+<INPUT TYPE=RADIO NAME=tfont VALUE="Palatino-Bold"> Palatino
+<br>
+<INPUT TYPE=RADIO NAME=tfont VALUE="Times-Bold"> Times
+</td>
+<!-- radio buttons to select font for day numerics -->
+<td>
+<INPUT TYPE=RADIO NAME=dfont VALUE="AvantGarde-Book"> Avant-Garde
+<br>
+<INPUT TYPE=RADIO NAME=dfont VALUE="Helvetica-Bold" CHECKED> Helvetica
+<br>
+<INPUT TYPE=RADIO NAME=dfont VALUE="Palatino-Bold"> Palatino
+<br>
+<INPUT TYPE=RADIO NAME=dfont VALUE="Times-Bold"> Times
+</td>
+</tr></table>
+<br>
+
+<!-- radio buttons to select 'day numerics' color/styles for overall, Sat/Sun, and holiday cases -->
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Overall Day Numerics Style (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=dstyle VALUE="" CHECKED> default
+<br>
+<INPUT TYPE=RADIO NAME=dstyle VALUE="-g"> solid 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=dstyle VALUE="-b"> solid black
+<br>
+<INPUT TYPE=RADIO NAME=dstyle VALUE="-O"> outline in 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=dstyle VALUE="-G"> black outline filled with 'day numerics' color (default = gray)
+</td></tr></table>
+<br>
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Sat/Sun Numerics Style (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=wstyle VALUE="" CHECKED> default
+<br>
+<INPUT TYPE=RADIO NAME=wstyle VALUE="-g"> solid 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=wstyle VALUE="-b"> solid black
+<br>
+<INPUT TYPE=RADIO NAME=wstyle VALUE="-O"> outline in 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=wstyle VALUE="-G"> black outline filled with 'day numerics' color (default = gray)
+</td></tr></table>
+<br>
+
+<table border=1 cellspacing=0 cellpadding=3>
+<tr align=center bgcolor="#ffff90"><th colspan=1>Holiday Numerics Style (PS only)</th></tr>
+<tr align=left><td>
+<INPUT TYPE=RADIO NAME=hstyle VALUE="" CHECKED> default
+<br>
+<INPUT TYPE=RADIO NAME=hstyle VALUE="-g"> solid 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=hstyle VALUE="-b"> solid black
+<br>
+<INPUT TYPE=RADIO NAME=hstyle VALUE="-O"> outline in 'day numerics' color (default = gray)
+<br>
+<INPUT TYPE=RADIO NAME=hstyle VALUE="-G"> black outline filled with 'day numerics' color (default = gray)
+</td></tr></table>
+<br>
+
+<!-- checkbox to bypass processing of 'pcal options' file -->
+
+<INPUT TYPE=CHECKBOX NAME=datefile value="-e">Bypass 'Date File' Processing (for a plain calendar)
+<br><br> 
+
+<!-- "reset" and "submit" buttons -->
+
+<INPUT TYPE="reset" VALUE="Reset options">
+<INPUT TYPE="submit" VALUE="Create calendar">
+
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+# Bank holidays in Germany
+# Holidays in Germany differ between regions. This file contains the
+# main holidays that exist in all regions. No warrenty for them being
+# correct.
+#
+# last modified Thu Apr 10 16:21:06 GTBDT 2003 by Stefan Fronzek
+#
+# add an asterisk (*) to the date to specify a bank holiday
+
+# OVERRIDE THE PROGRAM DEFAULTS
+opt -E	# European date format
+opt -a de	# print out German days and months
+
+# print the week and day number on each Sunday
+#all Sunday in all*		 <I>Tag %j, Woche %w</I>
+
+1 Jan*				Neujahr
+
+# Easter is a predefined holiday, calculated by Pcal for each year
+Good_Friday*			Karfreitag
+Easter				Ostersonntag
+Mon after Easter*		Ostermontag
+
+6th Thursday after Easter*	Himmelfahrt
+
+# last Sunday in March		Mother's Day
+last Sunday in March		Sommerzeit (+1h)
+
+1 May*				1. Mai
+
+3 October*			Tag der dt. Einheit
+
+last Sunday in Oct		Winterzeit (-1h)
+
+# Thanksgiving and Christmas are also predefined holidays
+day before Christmas* 		Heilig Abend
+Christmas*			1. Weihnachtstag
+day after Christmas*		2. Weihnachtstag
+
+#last day in Dec			Sylvester

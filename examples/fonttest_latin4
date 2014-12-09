@@ -1,0 +1,110 @@
+# 
+# This is a 'pcal' input file to test character mappings (PostScript 'vector
+# encodings') for a single character set:
+# 
+#    pcal -f fonttest_latin4
+# 
+# The characters are printed in ascending numeric order.
+# 
+opt -S   # suppress small prev/next monthly calendars
+opt -B   # leave unused boxes blank
+opt -b all   # use black for all days' numerics
+opt -r Latin4   # force the proper character set encoding
+opt -C "ISO 8859-4 (Latin4) character mappings"   # centered 'footer' string
+
+all 01  240 \240 uni00A0
+all 01  241 \241 Aogonek
+all 01  242 \242 kgreenlandic
+all 01  243 \243 Rcommaaccent
+all 02  244 \244 currency
+all 02  245 \245 Itilde
+all 02  246 \246 Lcommaaccent
+all 02  247 \247 section
+all 03  250 \250 dieresis
+all 03  251 \251 Scaron
+all 03  252 \252 Emacron
+all 03  253 \253 Gcommaaccent
+all 04  254 \254 Tbar
+all 04  255 \255 uni00AD
+all 04  256 \256 Zcaron
+all 04  257 \257 macron
+all 05  260 \260 degree
+all 05  261 \261 aogonek
+all 05  262 \262 ogonek
+all 05  263 \263 rcommaaccent
+all 06  264 \264 acute
+all 06  265 \265 itilde
+all 06  266 \266 lcommaaccent
+all 06  267 \267 caron
+all 07  270 \270 cedilla
+all 07  271 \271 scaron
+all 07  272 \272 emacron
+all 07  273 \273 gcommaaccent
+all 08  274 \274 tbar
+all 08  275 \275 Eng
+all 08  276 \276 zcaron
+all 08  277 \277 eng
+all 09  300 \300 Amacron
+all 09  301 \301 Aacute
+all 09  302 \302 Acircumflex
+all 09  303 \303 Atilde
+all 10  304 \304 Adieresis
+all 10  305 \305 Aring
+all 10  306 \306 AE
+all 10  307 \307 Iogonek
+all 11  310 \310 Ccaron
+all 11  311 \311 Eacute
+all 11  312 \312 Eogonek
+all 11  313 \313 Edieresis
+all 12  314 \314 Edotaccent
+all 12  315 \315 Iacute
+all 12  316 \316 Icircumflex
+all 12  317 \317 Imacron
+all 13  320 \320 Dcroat
+all 13  321 \321 Ncommaaccent
+all 13  322 \322 Omacron
+all 13  323 \323 Kcommaaccent
+all 14  324 \324 Ocircumflex
+all 14  325 \325 Otilde
+all 14  326 \326 Odieresis
+all 14  327 \327 multiply
+all 15  330 \330 Oslash
+all 15  331 \331 Uogonek
+all 15  332 \332 Uacute
+all 15  333 \333 Ucircumflex
+all 16  334 \334 Udieresis
+all 16  335 \335 Utilde
+all 16  336 \336 Umacron
+all 16  337 \337 germandbls
+all 17  340 \340 amacron
+all 17  341 \341 aacute
+all 17  342 \342 acircumflex
+all 17  343 \343 atilde
+all 18  344 \344 adieresis
+all 18  345 \345 aring
+all 18  346 \346 ae
+all 18  347 \347 iogonek
+all 19  350 \350 ccaron
+all 19  351 \351 eacute
+all 19  352 \352 eogonek
+all 19  353 \353 edieresis
+all 20  354 \354 edotaccent
+all 20  355 \355 iacute
+all 20  356 \356 icircumflex
+all 20  357 \357 imacron
+all 21  360 \360 dcroat
+all 21  361 \361 ncommaaccent
+all 21  362 \362 omacron
+all 21  363 \363 kcommaaccent
+all 22  364 \364 ocircumflex
+all 22  365 \365 otilde
+all 22  366 \366 odieresis
+all 22  367 \367 divide
+all 23  370 \370 oslash
+all 23  371 \371 uogonek
+all 23  372 \372 uacute
+all 23  373 \373 ucircumflex
+all 24  374 \374 udieresis
+all 24  375 \375 utilde
+all 24  376 \376 umacron
+all 24  377 \377 dotaccent

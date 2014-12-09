@@ -1,0 +1,82 @@
+# National holidays in France
+# 
+# Created by Valéry Bruniaux on 2004-06-16
+# 
+# Taken from 'pcal' mailing list archives:
+# 
+#    Hello.
+#    
+#    Here is a file containing the french "jours fériés" and some events like
+#    time changing, mother's day , etc...
+#    
+#    If you find it interesting, you could put it in the contribs on the
+#    web...
+#    
+#    Thanks a lot for very very nice pcal...
+#    
+#    =======================================================================
+#    Valéry Bruniaux - 43 B Avenue St. Exupéry - 13800 Istres
+#    Email : valery.bruniaux@if...
+# 
+
+# =======
+# options
+# =======
+opt -a fr     # output language = French
+opt -G samedi-dimanche -E -F lundi -K
+# opt -d Palatino-Bold/14 -n Helvetica-Narrow/8 -t Avant-Garde-Bold-Italic/24
+
+
+# =====
+# Notes
+# =====
+note year      Mettez vos notes ici
+
+# =============
+# Anniversaires
+# =============
+20.04  \fB Anniversaire Valéry
+
+# ============
+# Jours fériés
+# ============
+01 jan*        \fI Jour de l'an
+01 may*        \fI Fête du travail
+08 may*        \fI Armistice 1918
+14 jul*        \fI Fête nationale
+15 aug*        \fI Assomption
+01 nov*        \fI Toussaint
+11 nov*        \fI Armistice 1945
+25 dec*        \fI Noël
+monday after easter*           \fI Lundi de Paques
+6th thursday after easter*     \fI Ascension
+8th monday after easter*       \fI Lundi de la Pentecôte
+
+# ===================
+# Fêtes et évènements
+# ===================
+14 feb \fI St Valentin
+31 oct \fI Hallowen
+easter \fI Pâques
+Friday before Easter   \fI Vendredi saint
+7th sunday after easter        \fI Pentecôte
+7th Tuesday before Easter      \fI Mardi Gras
+last Sunday in March   \fI heure d'été (+1h)
+last Sunday in Oct     \fI heure d'hiver (-1h)
+1st Sunday in June     \fI Fête des mères
+3rd Sunday in June     \fI Fête des pères
+
+# ========
+# Vacances
+# ========
+#all days in July*
+#all days in Aug*
+
+# ==========
+# Calendrier
+# ==========
+
+# Affiche les numéros de semaine le lundi
+all monday in all      \fI Semaine %w
+
+# Commencez votre calendrier ici ...

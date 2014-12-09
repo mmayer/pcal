@@ -1,0 +1,47 @@
+# National holidays in Hungary of Jan 2005.
+#
+# Created by Ferenc Kruzslicz
+# A bit of copy-and-paste from the Finnish settings
+#
+# add an asterisk (*) to the date to specify a non-work holiday
+
+# opt -d AvantGarde-Book/30 -t AvantGarde-Book -n Helvetica/8
+opt -a hu               # set hungarian language
+opt -F Monday           # weeks start with Monday
+opt -s 0.6/0.97		# override default date/fill box shading
+opt -z 1                # time zone should be GMT+1
+
+# print the week and day number on each Sunday
+all Sunday in all*         <I>%w. h\351t, %j. nap</I>
+
+ifndef whole_year
+  opt -Oall -gsat-sun -bholiday		# print outlined characters if "-w" NOT specified
+endif
+undef no_such_sym	# not an error to undef nonexistent symbol
+
+# Predefined holidays were used wherever it was possible
+opt -A			# dates below are American-style
+year *			# following entries apply to every year
+if lang_hu
+  Jan 01*                     \332j\351v
+  Feb 14                      B\341lint nap
+  Easter*	              H\372sv\351t vas\341rnap
+  Mar 8 		      N\365nap
+  Mar 15*                     Nemzeti \374nnep - az 1848-as szabads\341gharc kit\366r\351s\351nek \351vfordul\363ja
+  Apr 01                      Bolondok napja
+  Easter                      H\372sv\351t
+  day after Easter*	      H\372sv\351th\351tf\365
+  first Sunday in May	      Any\341k napja
+  last Sunday in May	      Gyermeknap
+# 50 days after Easter        P\374nk\366sd (vas\341rnap)
+  7th Sunday after Easter     P\374nk\366sd
+  8th Monday after Easter*    P\374nk\366sdh\351tf\365
+  May 01*                     A munka \374nnepe
+  Aug 20*                     Nemzeti \374nnep - a magyar \341llamalap\355t\341s \351vfordul\363ja
+  Oct 23*                     Nemzeti \374nnep - az 1956-os forradalom kit\366r\351s\351nek \351vfordul\363ja
+  Nov 01*                     Mindenszentek
+  day before Christmas        Szenteste
+  Christmas*                  Kar\341csony
+  day after Christmas*        Kar\341csony m\341snapja
+  Dec 31                      Szilveszter
+endif
