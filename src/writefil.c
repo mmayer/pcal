@@ -417,6 +417,7 @@ void write_psfile (void)
    char *p, tmp[STRSIZ], *allfonts[MAXFONT];
    char time_str[50];
    time_t curr_tyme;
+   int generate_diagonals = 1;
    
 #if defined (BUILD_ENV_UNIX) || defined (BUILD_ENV_DJGPP)
    struct passwd *pw;
@@ -1001,6 +1002,17 @@ void write_psfile (void)
    printf("%% draw the grid (6 rows x 7 columns) for the calendar\n");
    printf("%%\n");
    printf("/drawgrid {\n");
+   if (generate_diagonals) {
+      printf("	%% Diagonal lines in big calendar only\n");
+      printf("	calsize large eq {\n");
+      printf("		0.1 setlinewidth\n");
+      printf("			startbox 7 add 1 ndays startbox add 6 add {\n");
+      printf("			boxpos moveto\n");
+      printf("			daywidth dayheight rlineto\n");
+      printf("			stroke\n");
+      printf("		} for\n");
+      printf("	} if\n\n");
+   }
    printf("	gridlinewidth calsize get setlinewidth\n");
    printf("\n");
    printf("	1 1 6 {					%% inner vertical lines\n");
