@@ -1005,12 +1005,14 @@ void write_psfile (int generate_diagonals)
    printf("	%% We 'abuse' the function here to provide the bottom left\n");
    printf("	%% corner of the *previous* week. This is why the for loop\n");
    printf("	%% runs from 7 to ndays + 6.\n");
+   printf("	gsave\n");
    printf("	0.1 setlinewidth\n");
    printf("	startbox 7 add 1 ndays startbox add 6 add {\n");
    printf("		boxpos moveto\n");
    printf("		daywidth dayheight rlineto\n");
    printf("		stroke\n");
    printf("	} for\n");
+   printf("	grestore\n");
    printf("} bind def\n\n");
 
    printf("%% -- drawgrid => --\n");
