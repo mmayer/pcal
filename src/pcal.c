@@ -477,6 +477,7 @@ int tz_flag = FALSE;
 
 char title_align[STRSIZ] = TITLE_ALIGN;   /* -W */
 
+int generate_diagonals = 0;
 int debug_flags = 0;   /* -Z */
 
 
@@ -727,6 +728,7 @@ FLAG_USAGE flag_tbl[] = {
 
 	{ F_TITLEALIGN,	TRUE,		P_ENV | P_CMD1 | P_OPT		 },
 
+	{ F_DIAGONALS,	TRUE,		P_ENV | P_CMD1 | P_OPT| P_CMD2	},
 	{ F_DEBUG,	TRUE,	P_CMD0 | P_ENV		| P_OPT		 },
 
 	{ '-',		FALSE,		 P_ENV | P_CMD1 | P_OPT | P_CMD2 },
@@ -747,7 +749,7 @@ DEBUG_INFO debug_info[] = {
 
 
 /* to be filled in by display_usage() */
-static char Xtval[VALSIZ], Ytval[VALSIZ], Xsval[VALSIZ], Ysval[VALSIZ], Ncopy[VALSIZ];
+static char Xtval[VALSIZ], Ytval[VALSIZ], Xsval[VALSIZ], Ysval[VALSIZ], Ncopy[VALSIZ], gen_diags_val[VALSIZ];
 
 /*
  * Message strings to be printed by usage() - translate as necessary
@@ -820,6 +822,9 @@ FLAG_MSG flag_msg[] = {
 	{ END_GROUP },
 
 	{ F_EMPTY_CAL,	NULL,		"generate empty calendar (ignore date file)",		NULL },
+	{ END_GROUP },
+
+	{ F_DIAGONALS, W_VALUE,		"draw diagonal lines for each day", gen_diags_val },
 	{ END_GROUP },
 
 	{ F_DATE_FILE,	W_FILE,		"specify alternate date file",				DATEFILE },
@@ -1256,6 +1261,7 @@ void display_usage (FILE *fp,       /* destination of usage message */
    sprintf(Ytval, "%d", 0);
    sprintf(Xsval, "%.3f", 1.0);
    sprintf(Ysval, "%.3f", 1.0);
+   sprintf(gen_diags_val, "%d", 0);
    
    sprintf(Ncopy, "%d", NCOPY);
    
@@ -1874,6 +1880,10 @@ int get_args (char **argv, int  curr_pass, char *where, int  get_numargs)
          strcpy (title_align, parg && IS_TITLE_ALIGN(parg) ? parg : TITLE_ALIGN);
          break;         
 
+      case F_DIAGONALS:   /* draw diagonal lines */
+         if (parg) generate_diagonals = atoi(parg);
+         break;
+
       case F_DEBUG:   /* turn on debugging (undocumented) */
          sv_debug = DEBUG(DEBUG_OPTS);
          set_debug_flag(parg);
@@ -2309,7 +2319,7 @@ int main (int argc GCC_UNUSED, char **argv)
    
    if (output_type == OUTPUT_CAL) write_calfile();
    else if (output_type == OUTPUT_HTML) write_htmlfile();
-   else write_psfile();
+   else write_psfile(generate_diagonals);
    
    cleanup();   /* free allocated data */
    

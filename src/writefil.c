@@ -411,13 +411,12 @@ void ps_prtday_bw (void)
       month.
 
 */
-void write_psfile (void)
+void write_psfile (int generate_diagonals)
 {
    int i, nfonts, nfsize, copies, dfltsize, color_dates, color_fill;
    char *p, tmp[STRSIZ], *allfonts[MAXFONT];
    char time_str[50];
    time_t curr_tyme;
-   int generate_diagonals = 1;
    
 #if defined (BUILD_ENV_UNIX) || defined (BUILD_ENV_DJGPP)
    struct passwd *pw;

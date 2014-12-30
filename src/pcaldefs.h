@@ -1046,6 +1046,8 @@ typedef char *DATE_MSG;   /* date file syntax message */
 
 #define F_TITLEALIGN	'W'		/* set title alignment (left/center/right) */
 
+#define F_DIAGONALS	'i'		/* draw diagonal lines */
+
 /* special "hidden" flag (and subflags) for debug info generation */
 
 #define F_DEBUG		'Z'		/* generate debugging information */

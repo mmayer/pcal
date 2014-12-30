@@ -271,4 +271,4 @@ extern void single_month_html (int this_month, int this_year);
 extern void single_month_one_column_html (int this_month, int this_year);
 extern void write_calfile (void);
 extern void write_htmlfile (void);
-extern void write_psfile (void);
+extern void write_psfile (int generate_diagonals);
