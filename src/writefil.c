@@ -1001,17 +1001,36 @@ void write_psfile (int generate_diagonals)
    printf("%% draw diagonal lines across the box for each day\n");
    printf("%%\n");
    printf("/draw_diagonals {\n");
-   printf("	%% boxpos returns the upper left corner of a calendar box.\n");
-   printf("	%% We 'abuse' the function here to provide the bottom left\n");
-   printf("	%% corner of the *previous* week. This is why the for loop\n");
-   printf("	%% runs from 7 to ndays + 6.\n");
    printf("	gsave\n");
    printf("	0.1 setlinewidth\n");
-   printf("	startbox 7 add 1 ndays startbox add 6 add {\n");
-   printf("		boxpos moveto\n");
-   printf("		daywidth dayheight rlineto\n");
-   printf("		stroke\n");
-   printf("	} for\n");
+   printf("\n");
+   printf("	%% If the argument passed in has bit 0 set, we draw forward\n");
+   printf("	%% diagonals. If bit 1 is set, we draw backward diagonals.\n");
+   printf("	%% If both bits are set, we draw both.\n");
+   printf("	dup\n");
+   printf("	1 and 0 ne {\n");
+   printf("		%% boxpos returns the upper left corner of a "
+          "calendar box.\n");
+   printf("		%% We use the function here to provide the bottom "
+          "left corner\n");
+   printf("		%% of the *previous* week. This is why the for loop "
+          "runs from\n");
+   printf("		%% 7 to ndays + 6.\n");
+   printf("		startbox 7 add 1 ndays startbox add 6 add {\n");
+   printf("			boxpos moveto\n");
+   printf("			daywidth dayheight rlineto\n");
+   printf("			stroke\n");
+   printf("		} for\n");
+   printf("	} if\n");
+   printf("\n");
+   printf("	2 and 0 ne {\n");
+   printf("		startbox 1 ndays startbox add 1 sub {\n");
+   printf("			boxpos moveto\n");
+   printf("			daywidth negdayheight rlineto\n");
+   printf("			stroke\n");
+   printf("		} for\n");
+   printf("	} if\n");
+   printf("\n");
    printf("	grestore\n");
    printf("} bind def\n\n");
 
@@ -1020,11 +1039,9 @@ void write_psfile (int generate_diagonals)
    printf("%% draw the grid (6 rows x 7 columns) for the calendar\n");
    printf("%%\n");
    printf("/drawgrid {\n");
-   if (generate_diagonals) {
-      printf("	calsize large eq {\n");
-      printf("		draw_diagonals\n");
-      printf("	} if\n\n");
-   }
+   printf("	calsize large eq {\n");
+   printf("		%d draw_diagonals\n", generate_diagonals);
+   printf("	} if\n\n");
    printf("	gridlinewidth calsize get setlinewidth\n");
    printf("\n");
    printf("	1 1 6 {					%% inner vertical lines\n");
