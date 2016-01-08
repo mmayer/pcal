@@ -815,7 +815,9 @@ void write_psfile (int generate_diagonals)
    printf("/neggridwidth gridwidth neg def\n");
    printf("/neggridheight gridheight neg def\n");
    printf("\n");
-   printf("/textmargin 2 def			%% left/right margin for text\n");
+   printf("/lefttextmargin 2 def		%% left margin for text\n");
+   printf("/righttextmargin 2 def		%% right margin for text\n");
+   printf("/righttextmargin_diag 16 def		%% right text margin with diagonals\n");
    printf("/notemargin 4 def			%% left/right margin for notes\n");
    printf("/charlinewidth 0.1 def			%% width of outline characters\n");
    printf("\n");
@@ -1009,6 +1011,11 @@ void write_psfile (int generate_diagonals)
    printf("	%% If both bits are set, we draw both.\n");
    printf("	dup\n");
    printf("	1 and 0 ne {\n");
+   printf("		%% Redefine /righttextmargin, because the area to "
+          "write in is\n");
+   printf("		%% now narrower due to the diagonals.\n");
+   printf("		/righttextmargin righttextmargin_diag def\n");
+   printf("\n");
    printf("		%% boxpos returns the upper left corner of a "
           "calendar box.\n");
    printf("		%% We use the function here to provide the bottom "
@@ -1385,9 +1392,9 @@ void write_psfile (int generate_diagonals)
          printf("	NotesFontSet\n");
          printf("	day datepos datefontsize large get 0.75 mul datemargin large get\n");
          printf("	  2 mul add notesfontsize 0.75 mul add sub dup\n");
-         printf("	  /ypos exch def exch textmargin add exch moveto\n");
+         printf("	  /ypos exch def exch lefttextmargin add exch moveto\n");
          printf("	currentpoint pop /LM exch def\n");
-         printf("	/RM LM daywidth textmargin 2 mul sub add def\n");
+         printf("	/RM LM daywidth righttextmargin 2 mul sub add def\n");
          printf("	showtext\n");
          printf("} bind def\n\n");
 
@@ -1408,7 +1415,7 @@ void write_psfile (int generate_diagonals)
          printf("	/ypos exch def exch dwidth add exch moveto\n");
          printf("	currentpoint pop /LM exch def\n");
          printf("	/mwidth do-moon-p {offset radius add} {0} ifelse def	%% moon width\n");
-         printf("	/RM LM daywidth textmargin sub dwidth mwidth add sub add def\n");
+         printf("	/RM LM daywidth lefttextmargin sub dwidth mwidth add sub add def\n");
          printf("	showtext\n");
          printf("} bind def\n\n");
 
@@ -1520,7 +1527,7 @@ void write_psfile (int generate_diagonals)
          printf("	day datepos datefontsize large get 0.75 mul datemargin large get\n");
          printf("	2 mul add\n");
          printf("	sub dup\n");
-         printf("	/ypos exch def exch textmargin add exch\n");
+         printf("	/ypos exch def exch lefttextmargin add exch\n");
          printf("	moveto\n");
          printf("	currentpoint\n");
          printf("	\n");
