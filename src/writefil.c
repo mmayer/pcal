@@ -1026,6 +1026,9 @@ void write_psfile (int generate_diagonals)
    printf("	2 and 0 ne {\n");
    printf("		startbox 1 ndays startbox add 1 sub {\n");
    printf("			boxpos moveto\n");
+   printf("			%%20 dup dup dup neg rmoveto\n");
+   printf("			%%daywidth exch sub exch negdayheight add "
+          "rlineto\n");
    printf("			daywidth negdayheight rlineto\n");
    printf("			stroke\n");
    printf("		} for\n");
