@@ -374,7 +374,7 @@ char *months_ml[NUM_LANGUAGES][12] = {
      "\307\322\325\304\305\316\330" },
 
    /* Estonian */
-   { "Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni",
+   { "Jaanuar", "Veebruar", "M\344rts", "Aprill", "Mai", "Juuni",
      "Juuli", "August", "September", "Oktoober", "November", "Detsember" },
 
    /* Russian */
