@@ -9,12 +9,20 @@ $prg =~ s|.*/||;
 my $time_t;
 my $interval;
 my $i;
-my ($start_date, $int, $count, $text) = @ARGV;
+my ($start_date, $int, $count, $text);
+my $cron_output = 0;
+
+if ($ARGV[0] eq '-c') {
+	$cron_output = 1;
+	shift(@ARGV);
+}
 
 if ($#ARGV < 3) {
 	print(STDERR "usage: $prg <start-date> <interval> <count> <text>\n");
 	exit(1);
 }
+
+($start_date, $int, $count, $text) = @ARGV;
 
 if ($start_date =~ /^(\d{4})-(\d{2})-(\d{2})$/) {
 	my ($year, $month, $day) = ($1, $2, $3);
@@ -45,5 +53,9 @@ for ($i = 0; $i < $count; $i++) {
 	my @tm;
 	my ($month, $day);
 	@tm = localtime($date);
-	print(POSIX::strftime("%B %d", @tm)."\t$text\n");
+	if ($cron_output) {
+		printf("%02d %02d * $text\n", $tm[3], $tm[4] + 1);
+	} else {
+		print(POSIX::strftime("%B %d", @tm)."\t$text\n");
+	}
 }
